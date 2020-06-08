@@ -13,6 +13,7 @@ public class exchangeRateMain extends Application{
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		primaryStage.setTitle("계산기");
 	}
 	public static void main(String[] args) {
 		launch(args);

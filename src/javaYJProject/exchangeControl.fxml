@@ -10,45 +10,18 @@
 <?import javafx.collections.*?>
 <?import java.lang.String?>
 
-<AnchorPane prefHeight="159.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="349.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+			fx:controller="javaYJProject.exchangeRateController">
 	<children>
-		<Label alignment="CENTER" layoutX="218.0" layoutY="50.0" prefHeight="73.0" prefWidth="49.0" text="=" textAlignment="CENTER" textFill="#403437">
-			<font>
-				<Font size="61.0" />
-			</font>
-		</Label>
-		<ComboBox fx:id="comboPublic1" layoutX="60.0" layoutY="60.0" prefHeight="25.0" prefWidth="140.0">
-			<items>
-				<FXCollections fx:factory="observableArrayList">
-					<String fx:value="한국         KRW" />
-					<String fx:value="미국         USD" />
-					<String fx:value="중국         CNY" />
-					<String fx:value="일본         JPY" />
-					<String fx:value="유럽 연합  EUR" />
-				</FXCollections>
-			</items>
-		</ComboBox>
-		<ComboBox fx:id="comboPublic2" layoutX="281.0" layoutY="60.0" prefHeight="25.0" prefWidth="140.0">
-			<items>
-				<FXCollections fx:factory="observableArrayList">
-					<String fx:value="한국         KRW" />
-					<String fx:value="미국         USD" />
-					<String fx:value="중국         CNY" />
-					<String fx:value="일본         JPY" />
-					<String fx:value="유럽 연합  EUR" />
-				</FXCollections>
-			</items>
-		</ComboBox>
-		<TextField layoutX="60.0" layoutY="105.0" prefHeight="25.0" prefWidth="140.0" />
-      <TextField disable="true" layoutX="281.0" layoutY="105.0" prefHeight="25.0" prefWidth="140.0">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </TextField>
+	 	<TextField layoutX="42.0" layoutY="272.0" prefHeight="25.0" prefWidth="140.0" />
+        <TextField disable="true" layoutX="289.0" layoutY="272.0" prefHeight="25.0" prefWidth="140.0"/>
       <Label alignment="CENTER" layoutX="173.0" layoutY="14.0" prefHeight="33.0" prefWidth="138.0" text="ㅎㅎㄱㅅㄱ" textAlignment="CENTER" textFill="#403437">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
+      <ListView fx:id="listView1" layoutX="42.0" layoutY="101.0" prefHeight="152.0" prefWidth="140.0" />
+      <ListView fx:id="listView2" layoutX="289.0" layoutY="101.0" prefHeight="152.0" prefWidth="140.0" />
+      
 	</children>
 </AnchorPane>
