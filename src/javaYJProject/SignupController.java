@@ -24,6 +24,7 @@ public class SignupController implements Initializable {
 	@FXML Button login;
 	@FXML ImageView progress;
 	@FXML TextField password;
+	@FXML TextField phonenum;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -49,7 +50,7 @@ public class SignupController implements Initializable {
 		signup.getScene().getWindow().hide();
 		
 		Stage login = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("/FXML/LoginMain.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
 		Scene scene = new Scene(root);
 		login.setScene(scene);
 		login.show();

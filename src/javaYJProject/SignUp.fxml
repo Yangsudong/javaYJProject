@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+			fx:controller="javaYJProject.SignupController">
+   <children>
+      <TextField fx:id="username" layoutX="162.0" layoutY="155.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter User Id" />
+      <TextField fx:id="password" layoutX="162.0" layoutY="215.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter User Password" />
+      <RadioButton layoutX="183.0" layoutY="331.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="89.0" text="Male">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="294.0" layoutY="331.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="89.0" text="Female">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <Button fx:id="signup" layoutX="234.0" layoutY="370.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #E782FF;" text="Sgin up" textFill="#e8eaee" />
+      <ImageView fitHeight="33.0" fitWidth="54.0" layoutX="108.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javaYJProjectImage/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="54.0" layoutX="108.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javaYJProjectImage/pass.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="54.0" layoutX="107.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javaYJProjectImage/male.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="phonenum" layoutX="162.0" layoutY="271.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter User Phone number" />
+      <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="108.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javaYJProjectImage/phone.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

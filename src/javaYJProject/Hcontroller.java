@@ -37,7 +37,7 @@ public class Hcontroller implements Initializable{
 	}
 	private void createPage() {
 		try {
-			home = FXMLLoader.load(getClass().getResource("/FXML/home.fxml"));
+			home = FXMLLoader.load(getClass().getResource("carRevieHome.fxml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
