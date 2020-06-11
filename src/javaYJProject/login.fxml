@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="570.0" style="-fx-background-color: #;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-			fx:controller="javaYJProject.LoginController">
+<AnchorPane prefHeight="500.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+		    fx:controller="javaYJProject.LoginController">
    <children>
-      <TextField fx:id="username" layoutX="151.0" layoutY="250.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter User Id">
+      <TextField fx:id="userName" layoutX="151.0" layoutY="250.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter User Id">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
       <TextField fx:id="password" layoutX="151.0" layoutY="315.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter User Password" />
-      <Button fx:id="login" layoutX="307.0" layoutY="372.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #E782FF;" text="Login" textFill="#e8eaee">
+      <Button fx:id="btnLogin" layoutX="307.0" layoutY="372.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #E782FF;" text="Login" textFill="#e8e9ef">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="signup" layoutX="183.0" layoutY="372.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #E782FF;" text="Sign up" textFill="#e8eaee">
+      <Button fx:id="btnSignup" layoutX="183.0" layoutY="372.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #E782FF;" text="Sign up" textFill="#e8e9ef">
          <font>
             <Font size="14.0" />
          </font>
@@ -47,10 +47,12 @@
             <Font name="Sitka Text" size="48.0" />
          </font>
          <textFill>
-            <LinearGradient endX="1.0" endY="1.0" startX="0.23333333333333334" startY="0.6809523809523809">
+            <LinearGradient endX="0.9142857142857143" endY="1.0" startX="0.4095238095238095" startY="0.4428571428571428">
                <stops>
                   <Stop color="#ae8dccdd" />
-                  <Stop color="#e8eaee" offset="1.0" />
+                  <Stop color="#be8bcc" offset="0.0078125" />
+                  <Stop color="#33153c" offset="0.8119263548951049" />
+                  <Stop color="#bf8acd" offset="1.0" />
                </stops>
             </LinearGradient>
          </textFill>

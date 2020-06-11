@@ -2,11 +2,14 @@ package javaYJProject;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ResourceBundle;
 
+
 import javafx.animation.PauseTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,22 +18,35 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class LoginController implements Initializable{
 	
-	@FXML Button signup;
-	@FXML TextField username;
-	@FXML Button login;
+	@FXML Button btnSignup;
+	@FXML TextField userName;
+	@FXML Button btnLogin;
 	@FXML ImageView progress;
 	@FXML TextField password;
 	
-	private Connection conn;
-	private String users;
+	ObservableList<Users> users;
 
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		users = FXCollections.observableArrayList();
+
+		btnSignup.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				buttonSginupAction();
+			}
+		});
+		
 		progress.setVisible(false);
 	}
 	public void loginAction(ActionEvent event) {
@@ -43,13 +59,34 @@ public class LoginController implements Initializable{
 		
 		pt.play();
 	}
-	public void signup(ActionEvent evnet2) throws IOException {
-		Stage signup = new Stage();
-		login.getScene().getWindow().hide();
-		Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
-		Scene scene = new Scene(root);
-		signup.setScene(scene);
-		signup.show();
-		signup.setResizable(false);
+	
+	
+	public void buttonSginupAction() {
+		// 윈도우 Stage의 스타일지정
+		Stage sginupStage = new Stage(StageStyle.UTILITY);
+		sginupStage.initModality(Modality.WINDOW_MODAL);
+		sginupStage.initOwner(btnSignup.getScene().getWindow()); // addStage의 주window설정
+
+		try {
+			Parent parent = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+			Scene scene = new Scene(parent);
+			sginupStage.setScene(scene);
+			sginupStage.setResizable(false);
+			sginupStage.show();
+
+			Button btnSignup = (Button) parent.lookup("#btnSignup");
+
+			btnSignup.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					
+
+				}
+			});
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 }
