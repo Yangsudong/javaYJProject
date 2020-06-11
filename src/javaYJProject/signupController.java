@@ -47,7 +47,7 @@ public class signupController implements Initializable {
 	}
 		public void btnsignup(ActionEvent e) {		
 			
-				String sql = "insert into users(name,password,gender,phone_number)" 
+				String sql = "insert into users(name,password,gender,phone_number)"
 						+ " values(?,?,?,?)";
 				try {
 					PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -55,7 +55,8 @@ public class signupController implements Initializable {
 					pstmt.setString(2, password.getText());
 					pstmt.setString(3, getGender());
 					pstmt.setString(4, phoneNum.getText());
-									
+					
+					pstmt.executeUpdate();
 				}
 				catch(SQLException e1) {
 					e1.printStackTrace();
@@ -65,7 +66,19 @@ public class signupController implements Initializable {
 				password.setText(null);
 				phoneNum.setText(null);
 		}
-	
+		
+		public String getGender() {
+			
+			String gen = "";
+			if(Male.isSelected()) {
+				gen = "Male";
+			}
+			else if(Female.isSelected()) {
+				gen = "Female";
+			}
+			
+			return gen;
+		}
 
 	@FXML
 	public void loginAction(ActionEvent ae1) {
@@ -85,18 +98,7 @@ public class signupController implements Initializable {
 		}
 	}
 	
-	public String getGender() {
-		
-		String gen = "";
-		if(Male.isSelected()) {
-			gen = "Male";
-		}
-		else if(Female.isSelected()) {
-			gen = "Female";
-		}
-		
-		return gen;
-	}
+
 	
 	
 }

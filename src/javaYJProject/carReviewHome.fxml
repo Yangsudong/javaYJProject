@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+			fx:controller="javaYJProject.reviewHomeController">
 	<children>
 		<Pane prefHeight="600.0" prefWidth="218.0" style="-fx-background-color: #A33cd6;">
 			<children>

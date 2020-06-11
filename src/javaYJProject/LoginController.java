@@ -2,8 +2,12 @@ package javaYJProject;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
-
 
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
@@ -18,25 +22,39 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-public class LoginController implements Initializable{
-	
-	@FXML Button btnSignup;
-	@FXML TextField userName;
-	@FXML Button btnLogin;
-	@FXML ImageView progress;
-	@FXML TextField password;
-	
-	ObservableList<Users> users;
-	
+public class LoginController implements Initializable {
+
+	@FXML
+	Button btnSignup;
+	@FXML
+	TextField userName;
+	@FXML
+	Button btnLogin;
+	@FXML
+	ImageView progress;
+	@FXML
+	TextField password;
+
+	Connection conn;
+	ResultSet resultSet = null;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		users = FXCollections.observableArrayList();
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection(url, "hr", "hr");
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
 
 		btnSignup.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -44,24 +62,27 @@ public class LoginController implements Initializable{
 				buttonSginupAction();
 			}
 		});
-		
+
 		btnLogin.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
 				loginAction();
 			}
 		});
-		
+
 		progress.setVisible(false);
 	}
+
 	public void loginAction() {
-		//로딩바 
+
+		// 로딩바
 		progress.setVisible(true);
 		PauseTransition pt = new PauseTransition();
 		pt.setDuration(Duration.seconds(3));
 		pt.setOnFinished(event1 -> {
+
 			btnLogin.getScene().getWindow().hide();
-			
+
 			Stage login = new Stage();
 			Parent root;
 			try {
@@ -73,43 +94,48 @@ public class LoginController implements Initializable{
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-		});		
+		});
 		pt.play();
-		
+
+//		String sql = "SELECT * FROM users Where userName = ? and password = ?";
+//
+//		try {
+//			PreparedStatement pstmt = conn.prepareStatement(sql);
+//			pstmt.setString(1, userName.getText());
+//			pstmt.setString(2, password.getText());
+//			pstmt.executeQuery();
+//		} catch (SQLException e1) {
+//			e1.printStackTrace();
+//		} finally {
+//			try {
+//				conn.close();
+//			} catch (Exception e1) {
+//				e1.printStackTrace();
+//			}
+//		}
 	}
-	
-	
+
 	public void buttonSginupAction() {
-		// 윈도우 Stage의 스타일지정
-		
-		btnSignup.getScene().getWindow().hide();
-		
-		Stage login = new Stage();
-		Parent root;
-		try {
-			root = FXMLLoader.load(getClass().getResource("signUp.fxml"));
-			Scene scene = new Scene(root);
-			login.setScene(scene);
-			login.show();
-			login.setResizable(false);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public void buttonLoginAction() {
-		
-		btnLogin.getScene().getWindow().hide();
-		
-		Stage login = new Stage();
-		Parent root;
-		try {
-			root = FXMLLoader.load(getClass().getResource("carReviewHome.fxml"));
-			Scene scene = new Scene(root);
-			login.setScene(scene);
-			login.show();
-			login.setResizable(false);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		progress.setVisible(true);
+		PauseTransition pt = new PauseTransition();
+		pt.setDuration(Duration.seconds(3));
+		pt.setOnFinished(event1 -> {
+
+			btnSignup.getScene().getWindow().hide();
+
+			Stage login = new Stage();
+			Parent root;
+			try {
+				root = FXMLLoader.load(getClass().getResource("signUp.fxml"));
+				Scene scene = new Scene(root);
+				login.setScene(scene);
+				login.show();
+				login.setResizable(false);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+		pt.play();
+
 	}
 }
