@@ -32,11 +32,9 @@ public class LoginController implements Initializable{
 	@FXML TextField password;
 	
 	ObservableList<Users> users;
-
-	
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		users = FXCollections.observableArrayList();
 
@@ -47,46 +45,71 @@ public class LoginController implements Initializable{
 			}
 		});
 		
+		btnLogin.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				loginAction();
+			}
+		});
+		
 		progress.setVisible(false);
 	}
-	public void loginAction(ActionEvent event) {
+	public void loginAction() {
 		//로딩바 
 		progress.setVisible(true);
 		PauseTransition pt = new PauseTransition();
 		pt.setDuration(Duration.seconds(3));
 		pt.setOnFinished(event1 -> {
-		});
-		
+			btnLogin.getScene().getWindow().hide();
+			
+			Stage login = new Stage();
+			Parent root;
+			try {
+				root = FXMLLoader.load(getClass().getResource("carReviewHome.fxml"));
+				Scene scene = new Scene(root);
+				login.setScene(scene);
+				login.show();
+				login.setResizable(false);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		});		
 		pt.play();
+		
 	}
 	
 	
 	public void buttonSginupAction() {
 		// 윈도우 Stage의 스타일지정
-		Stage sginupStage = new Stage(StageStyle.UTILITY);
-		sginupStage.initModality(Modality.WINDOW_MODAL);
-		sginupStage.initOwner(btnSignup.getScene().getWindow()); // addStage의 주window설정
-
+		
+		btnSignup.getScene().getWindow().hide();
+		
+		Stage login = new Stage();
+		Parent root;
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
-			Scene scene = new Scene(parent);
-			sginupStage.setScene(scene);
-			sginupStage.setResizable(false);
-			sginupStage.show();
-
-			Button btnSignup = (Button) parent.lookup("#btnSignup");
-
-			btnSignup.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent event) {
-					
-
-				}
-			});
-
+			root = FXMLLoader.load(getClass().getResource("signUp.fxml"));
+			Scene scene = new Scene(root);
+			login.setScene(scene);
+			login.show();
+			login.setResizable(false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+	}
+	public void buttonLoginAction() {
+		
+		btnLogin.getScene().getWindow().hide();
+		
+		Stage login = new Stage();
+		Parent root;
+		try {
+			root = FXMLLoader.load(getClass().getResource("carReviewHome.fxml"));
+			Scene scene = new Scene(root);
+			login.setScene(scene);
+			login.show();
+			login.setResizable(false);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

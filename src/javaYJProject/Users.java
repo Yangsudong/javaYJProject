@@ -6,13 +6,16 @@ import javafx.beans.property.SimpleStringProperty;
 public class Users {
 	private SimpleStringProperty userName;
 	private SimpleStringProperty userPassword;
+	private SimpleStringProperty gender;
 	private SimpleIntegerProperty phoneNum;
 	
-	public Users(String userName,String userPassword,int phoneNum){
+	public Users(String userName,String userPassword,String gender, int phoneNum){
 		
 	this.userName = new SimpleStringProperty(userName);
 	this.userPassword = new SimpleStringProperty(userPassword);
+	this.gender = new SimpleStringProperty(gender);
 	this.phoneNum = new SimpleIntegerProperty(phoneNum);
+	
 	
 	}
 	
@@ -39,6 +42,19 @@ public class Users {
 	public SimpleStringProperty userPasswordProperty() {
 		return this.userPassword;
 	}
+	
+	public void setGender(String gender) {
+		this.gender.set(gender);
+	}
+
+	public String getGender() {
+		return this.gender.get();
+	}
+
+	public SimpleStringProperty genderProperty() {
+		return this.gender;
+	}
+	
 	
 	public void setphoneNum(int phoneNum) {
 		this.phoneNum.set(phoneNum);
