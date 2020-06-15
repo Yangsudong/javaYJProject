@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 public class reviewHomeController implements Initializable {
 	@FXML
-	Button btnlogout;
+	Button btnLogout;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -24,7 +24,7 @@ public class reviewHomeController implements Initializable {
 
 	public void logoutAction(ActionEvent ae1) {
 
-		btnlogout.getScene().getWindow().hide();
+		btnLogout.getScene().getWindow().hide();
 
 		Stage login = new Stage();
 		Parent root;
@@ -37,6 +37,7 @@ public class reviewHomeController implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 }

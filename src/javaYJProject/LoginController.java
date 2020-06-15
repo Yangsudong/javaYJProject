@@ -17,11 +17,13 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -31,30 +33,30 @@ import javafx.util.Duration;
 public class LoginController implements Initializable {
 
 	@FXML
-	Button btnSignup;
+	Button btnSignup, btnLogin, btnReturn;
 	@FXML
 	TextField userName;
-	@FXML
-	Button btnLogin;
 	@FXML
 	ImageView progress;
 	@FXML
 	TextField password;
 
-	Connection conn;
-	ResultSet resultSet = null;
+	Connection conn = null;
+	PreparedStatement pst = null;
+	ResultSet rs = null;
+
+	public LoginController() {
+		conn = ConnectionUtil.conDB();
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection(url, "hr", "hr");
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
 
+		if (conn == null) {
+			System.out.println("Server Error : Check");
+		} else {
+			System.out.println("Server is up : Good to go");
+		}
 
 		btnSignup.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -63,56 +65,85 @@ public class LoginController implements Initializable {
 			}
 		});
 
-		btnLogin.setOnAction(new EventHandler<ActionEvent>() {
+		btnLogin.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
 			@Override
-			public void handle(ActionEvent arg0) {
-				loginAction();
+			public void handle(MouseEvent event) {
+				handleButtonAction(event);
 			}
 		});
 
 		progress.setVisible(false);
+
 	}
+	
+	public void handleButtonAction(MouseEvent event) {
 
-	public void loginAction() {
-
-		// 로딩바
 		progress.setVisible(true);
 		PauseTransition pt = new PauseTransition();
-		pt.setDuration(Duration.seconds(3));
+		pt.setDuration(Duration.seconds(3));		
 		pt.setOnFinished(event1 -> {
 
-			btnLogin.getScene().getWindow().hide();
+			System.out.println(event.getSource());
 
-			Stage login = new Stage();
-			Parent root;
-			try {
-				root = FXMLLoader.load(getClass().getResource("carReviewHome.fxml"));
-				Scene scene = new Scene(root);
-				login.setScene(scene);
-				login.show();
-				login.setResizable(false);
-			} catch (IOException e1) {
-				e1.printStackTrace();
+			if (event.getSource() == btnLogin) {
+				// login here
+				System.out.println(loginAction().toString());
+				if (loginAction().equals("Success")) {
+
+					System.out.println("succ");
+					btnLogin.getScene().getWindow().hide();
+
+					Stage login = new Stage();
+					Parent root;
+					try {
+						root = FXMLLoader.load(getClass().getResource("CarHome.fxml"));
+						Scene scene = new Scene(root);
+						login.setScene(scene);
+						login.show();
+						login.setResizable(false);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+
+			} else {
+				System.out.println("error.");
+				pt.stop();
 			}
 		});
 		pt.play();
+	}
 
-//		String sql = "SELECT * FROM users Where userName = ? and password = ?";
-//
-//		try {
-//			PreparedStatement pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, userName.getText());
-//			pstmt.setString(2, password.getText());
-//			pstmt.executeQuery();
-//		} catch (SQLException e1) {
-//			e1.printStackTrace();
-//		} finally {
-//			try {
-//				conn.close();
-//			} catch (Exception e1) {
-//				e1.printStackTrace();
-//			}
-//		}
+	public String loginAction() {
+
+		String status = "Success";
+		String un = userName.getText();
+		String ps = password.getText();
+		if (un.isEmpty() || ps.isEmpty()) {
+			status = "Error";
+		} else {
+			// query
+			String sql = "SELECT * FROM users Where name = ? and password = ?";
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, userName.getText());
+				pst.setString(2, password.getText());
+				rs = pst.executeQuery();
+				if (!rs.next()) {
+					status = "Error";
+					System.out.println("Login fail");
+				} else {
+					System.out.println("Login succes");
+
+				}
+			} catch (SQLException ex) {
+				System.err.println(ex.getMessage());
+				status = "Exception";
+			}
+		}
+
+		return status;
 	}
 
 	public void buttonSginupAction() {
@@ -136,6 +167,20 @@ public class LoginController implements Initializable {
 			}
 		});
 		pt.play();
+	}
+	public void buttonReturnAction() {
+		btnSignup.getScene().getWindow().hide();
 
+		Stage login = new Stage();
+		Parent root;
+		try {
+			root = FXMLLoader.load(getClass().getResource("login.fxml"));
+			Scene scene = new Scene(root);
+			login.setScene(scene);
+			login.show();
+			login.setResizable(false);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -81,7 +81,7 @@ public class signupController implements Initializable {
 		}
 
 	@FXML
-	public void loginAction(ActionEvent ae1) {
+	public void closeAction(ActionEvent ae1) {
 	
 		btnsignup.getScene().getWindow().hide();
 		
