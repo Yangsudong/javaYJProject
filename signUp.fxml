@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaYJProject.signupController">
+   <children>
+      <TextField fx:id="userName" layoutX="162.0" layoutY="155.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter User Id" />
+      <PasswordField fx:id="password" layoutX="162.0" layoutY="214.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter User Password" />
+      <TextField fx:id="phoneNum" layoutX="162.0" layoutY="271.0" prefHeight="30.0" prefWidth="280.0" promptText="Enter User Phone number" />
+      <RadioButton fx:id="Male" layoutX="183.0" layoutY="331.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="89.0" selected="true" text="Male">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Female" layoutX="294.0" layoutY="331.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="89.0" text="Female" toggleGroup="$gender">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <Button fx:id="btnsignup" layoutX="190.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnsignup" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #E782FF;" text="Sgin up" textFill="#e8e9f1" />
+      <ImageView fitHeight="33.0" fitWidth="54.0" layoutX="108.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javaYJProjectImage/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="54.0" layoutX="108.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javaYJProjectImage/pass.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="54.0" layoutX="107.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javaYJProjectImage/male.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="108.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javaYJProjectImage/phone.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnsignupClose" layoutX="308.0" layoutY="388.0" mnemonicParsing="false" onAction="#closeAction" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #E782FF;" text="Close" textFill="#e8e9f1" />
+   </children>
+</AnchorPane>
