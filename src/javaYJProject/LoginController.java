@@ -25,18 +25,31 @@ import javafx.util.Duration;
 
 public class LoginController implements Initializable{
 	
-	@FXML Button btnSignup;
-	@FXML TextField userName;
-	@FXML Button btnLogin;
-	@FXML ImageView progress;
-	@FXML TextField password;
-	
-	ObservableList<Users> users;
-	
+	@FXML
+	Button btnSignup, btnLogin, btnReturn;
+	@FXML
+	TextField userName;
+	@FXML
+	ImageView progress;
+	@FXML
+	TextField password;
+
+	Connection conn = null;
+	PreparedStatement pst = null;
+	ResultSet rs = null;
+
+	public LoginController() {
+		conn = ConnectionUtil.conDB();
+	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		users = FXCollections.observableArrayList();
+
+		if (conn == null) {
+			System.out.println("Server Error : Check");
+		} else {
+			System.out.println("Server is up : Good to go");
+		}
 
 		btnSignup.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -44,66 +57,117 @@ public class LoginController implements Initializable{
 				buttonSginupAction();
 			}
 		});
-		
-		btnLogin.setOnAction(new EventHandler<ActionEvent>() {
+
+		btnLogin.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
 			@Override
-			public void handle(ActionEvent arg0) {
-				loginAction();
+			public void handle(MouseEvent event) {
+				handleButtonAction(event);
 			}
 		});
-		
+
 		progress.setVisible(false);
+
 	}
-	public void loginAction() {
-		//로딩바 
+	
+	public void handleButtonAction(MouseEvent event) {
+
+		progress.setVisible(true);
+		PauseTransition pt = new PauseTransition();
+		pt.setDuration(Duration.seconds(3));		
+		pt.setOnFinished(event1 -> {
+
+			System.out.println(event.getSource());
+
+			if (event.getSource() == btnLogin) {
+				// login here
+				System.out.println(loginAction().toString());
+				if (loginAction().equals("Success")) {
+
+					System.out.println("succ");
+					btnLogin.getScene().getWindow().hide();
+
+					Stage login = new Stage();
+					Parent root;
+					try {
+						root = FXMLLoader.load(getClass().getResource("CarHome.fxml"));
+						Scene scene = new Scene(root);
+						login.setScene(scene);
+						login.show();
+						login.setResizable(false);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+
+			} else {
+				System.out.println("error.");
+				pt.stop();
+			}
+		});
+		pt.play();
+	}
+
+	public String loginAction() {
+
+		String status = "Success";
+		String un = userName.getText();
+		String ps = password.getText();
+		if (un.isEmpty() || ps.isEmpty()) {
+			status = "Error";
+		} else {
+			// query
+			String sql = "SELECT * FROM users Where name = ? and password = ?";
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, userName.getText());
+				pst.setString(2, password.getText());
+				rs = pst.executeQuery();
+				if (!rs.next()) {
+					status = "Error";
+					System.out.println("Login fail");
+				} else {
+					System.out.println("Login succes");
+
+				}
+			} catch (SQLException ex) {
+				System.err.println(ex.getMessage());
+				status = "Exception";
+			}
+		}
+
+		return status;
+	}
+
+	public void buttonSginupAction() {
 		progress.setVisible(true);
 		PauseTransition pt = new PauseTransition();
 		pt.setDuration(Duration.seconds(3));
 		pt.setOnFinished(event1 -> {
-			btnLogin.getScene().getWindow().hide();
-			
+
+			btnSignup.getScene().getWindow().hide();
+
 			Stage login = new Stage();
 			Parent root;
 			try {
-				root = FXMLLoader.load(getClass().getResource("carReviewHome.fxml"));
+				root = FXMLLoader.load(getClass().getResource("signUp.fxml"));
 				Scene scene = new Scene(root);
 				login.setScene(scene);
 				login.show();
 				login.setResizable(false);
-			} catch (IOException e1) {
-				e1.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		});		
+		});
 		pt.play();
-		
 	}
-	
-	
-	public void buttonSginupAction() {
-		// 윈도우 Stage의 스타일지정
-		
+	public void buttonReturnAction() {
 		btnSignup.getScene().getWindow().hide();
-		
+
 		Stage login = new Stage();
 		Parent root;
 		try {
-			root = FXMLLoader.load(getClass().getResource("signUp.fxml"));
-			Scene scene = new Scene(root);
-			login.setScene(scene);
-			login.show();
-			login.setResizable(false);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public void buttonLoginAction() {
-		
-		btnLogin.getScene().getWindow().hide();
-		
-		Stage login = new Stage();
-		Parent root;
-		try {
-			root = FXMLLoader.load(getClass().getResource("carReviewHome.fxml"));
+			root = FXMLLoader.load(getClass().getResource("login.fxml"));
 			Scene scene = new Scene(root);
 			login.setScene(scene);
 			login.show();
