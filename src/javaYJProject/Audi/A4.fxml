@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ScrollPane prefHeight="845.0" prefWidth="600.0" />
+      <ImageView fitHeight="522.0" fitWidth="596.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@차사진/audi/audi%20w/au-a4%20w1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="357.0" fitWidth="596.0" layoutY="491.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@차사진/audi/audi%20w/au-a4%20w2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

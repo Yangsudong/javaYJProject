@@ -108,58 +108,43 @@
 		 <children>
       <ImageView fitHeight="243.0" fitWidth="367.0" layoutX="64.0" layoutY="14.0">
          <image>
-            <Image url="@../javaYJProjectImage/hyundai/Avante.png" />
+            <Image url="@../CarImages/Avante.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="243.0" fitWidth="367.0" layoutX="75.0" layoutY="246.0">
          <image>
-            <Image url="@../javaYJProjectImage/hyundai/Grandure.png" />
+            <Image url="@../CarImages/Grandure.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="218.0" fitWidth="336.0" layoutX="480.0" layoutY="27.0">
+      <ImageView fitHeight="243.0" fitWidth="367.0" layoutX="442.0">
          <image>
-            <Image url="@../javaYJProjectImage/hyundai/Sonata.png" />
+            <Image url="@../CarImages/Sonata.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="243.0" fitWidth="367.0" layoutX="446.0" layoutY="243.0">
          <image>
-            <Image url="@../javaYJProjectImage/hyundai/Santafe.png" />
+            <Image url="@../CarImages/Santafe.png" />
          </image>
       </ImageView>
-            <Button fx:id="btnavante" layoutX="158.0" layoutY="232.0" mnemonicParsing="false" onAction="#AvantebuttonAction" text="AVANTE">
+            <Button fx:id="btnavante" layoutX="234.0" layoutY="234.0" mnemonicParsing="false" onAction="#AvantebuttonAction" text="AVANTE">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="btnsonata" layoutX="549.0" layoutY="232.0" mnemonicParsing="false" onAction="#SonatabuttonAction" text="SONATA">
+            <Button fx:id="btnsonata" layoutX="608.0" layoutY="232.0" mnemonicParsing="false" onAction="#SonatabuttonAction" text="SONATA">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="btnsantafe" layoutX="549.0" layoutY="472.0" mnemonicParsing="false" onAction="#SantafebuttonAction" text="SnaTaFe">
+            <Button fx:id="btnsantafe" layoutX="615.0" layoutY="486.0" mnemonicParsing="false" onAction="#SantafebuttonAction" text="SnaTaFe">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="btngrandure" layoutX="154.0" layoutY="475.0" mnemonicParsing="false" onAction="#grandurebuttonAction" text="Grandure">
+            <Button fx:id="btngrandure" layoutX="225.0" layoutY="486.0" mnemonicParsing="false" onAction="#grandurebuttonAction" text="Grandure">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="avanteReview" layoutX="259.0" layoutY="232.0" mnemonicParsing="false" onAction="#reviewbuttonAction" prefHeight="29.0" prefWidth="79.0" text="Review">
+            <Button layoutX="403.0" layoutY="548.0" mnemonicParsing="false" text="Review">
                <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="259.0" layoutY="475.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="79.0" text="Review">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="648.0" layoutY="232.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="79.0" text="Review">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="648.0" layoutY="472.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="79.0" text="Review">
-               <font>
-                  <Font size="15.0" />
+                  <Font size="21.0" />
                </font>
             </Button>
    </children>

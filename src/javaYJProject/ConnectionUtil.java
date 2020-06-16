@@ -12,7 +12,7 @@ public class ConnectionUtil {
 //            Class.forName("com.mysql.jdbc.Driver");
 //            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/keeptoo_systems", "root", "");
         	Class.forName("oracle.jdbc.driver.OracleDriver");
-        	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "hr", "hr");
+        	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.76:1521:xe", "hr", "hr");
             return con;
         } catch (ClassNotFoundException | SQLException ex) {
             System.err.println("ConnectionUtil : "+ex.getMessage());

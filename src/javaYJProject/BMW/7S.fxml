@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="840.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane prefHeight="840.0" prefWidth="758.0" />
+      <ImageView fitHeight="488.0" fitWidth="936.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@차사진/BMW/자세히/b-7%20w1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="353.0" fitWidth="755.0" layoutX="1.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@차사진/BMW/자세히/b-7%20w2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

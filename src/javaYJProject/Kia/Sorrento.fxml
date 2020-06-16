@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fitHeight="722.0" fitWidth="453.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@차사진/기아/자세히/합친거/쏘렌토%20자세히1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

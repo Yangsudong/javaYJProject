@@ -82,7 +82,7 @@ public class LoginController implements Initializable {
 
 		progress.setVisible(true);
 		PauseTransition pt = new PauseTransition();
-		pt.setDuration(Duration.seconds(2));		
+		pt.setDuration(Duration.seconds(3));		
 		pt.setOnFinished(event1 -> {
 
 			System.out.println(event.getSource());
@@ -150,7 +150,7 @@ public class LoginController implements Initializable {
 	public void buttonSginupAction() {
 		progress.setVisible(true);
 		PauseTransition pt = new PauseTransition();
-		pt.setDuration(Duration.seconds(2));
+		pt.setDuration(Duration.seconds(3));
 		pt.setOnFinished(event1 -> {
 
 			btnSignup.getScene().getWindow().hide();

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ScrollPane prefHeight="600.0" prefWidth="600.0">
+         <content>
+            <ImageView fitHeight="598.0" fitWidth="577.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@차사진/벤츠/자세히/c클%20자세히1.png" />
+               </image>
+            </ImageView>
+         </content>
+      </ScrollPane>
+      <ImageView fitHeight="428.0" fitWidth="619.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@차사진/벤츠/자세히/c클%20자세히2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

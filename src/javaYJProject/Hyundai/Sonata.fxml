@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane prefHeight="850.0" prefWidth="768.0" />
+      <ImageView fitHeight="541.0" fitWidth="768.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../javaYJProjectImage/hyundai/Sonata%20w1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="367.0" fitWidth="768.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../javaYJProjectImage/hyundai/Sonata%20w2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

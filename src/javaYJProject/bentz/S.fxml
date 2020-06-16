@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="870.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ScrollPane prefHeight="870.0" prefWidth="774.0" />
+      <ImageView fitHeight="541.0" fitWidth="774.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@차사진/벤츠/자세히/s-c%20w1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="404.0" fitWidth="774.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@차사진/벤츠/자세히/s-c%20w2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

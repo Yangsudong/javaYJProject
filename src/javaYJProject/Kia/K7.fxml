@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane prefHeight="825.0" prefWidth="743.0">
+         <content>
+            <ImageView fitHeight="502.0" fitWidth="741.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@차사진/기아/자세히/k7%20자세히1.png" />
+               </image>
+            </ImageView>
+         </content></ScrollPane>
+      <ImageView fitHeight="364.0" fitWidth="743.0" layoutX="1.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@차사진/기아/자세히/k7%20자세히2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
