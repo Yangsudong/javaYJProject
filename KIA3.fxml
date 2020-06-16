@@ -97,57 +97,57 @@
 					</children>
 				</AnchorPane>
 				<Line endX="70.0" layoutX="124.0" layoutY="300.0" startX="-100.0" stroke="#b4aecd" />
-						<Button fx:id="btnLogout" layoutX="71.0" layoutY="561.0" onAction="#logoutAction" prefHeight="10.0" prefWidth="76.0" style="-fx-background-color: #87ceeb;" text="Logout">
-							<font>
-								<Font size="14.0" />
-							</font>
-						</Button>
+				<Button fx:id="btnLogout" layoutX="71.0" layoutY="561.0" onAction="#logoutAction" prefHeight="10.0" prefWidth="76.0" style="-fx-background-color: #87ceeb;" text="Logout">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Button>
 			</children>
 		</Pane>
-		<Pane layoutX="218.0" prefHeight="611.0" prefWidth="883.0">
-		 <children>
-      <ImageView fitHeight="243.0" fitWidth="367.0" layoutX="64.0" layoutY="14.0">
-         <image>
-            <Image url="@../CarImages/Avante.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="243.0" fitWidth="367.0" layoutX="75.0" layoutY="246.0">
-         <image>
-            <Image url="@../CarImages/Grandure.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="243.0" fitWidth="367.0" layoutX="442.0">
-         <image>
-            <Image url="@../CarImages/Sonata.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="243.0" fitWidth="367.0" layoutX="446.0" layoutY="243.0">
-         <image>
-            <Image url="@../CarImages/Santafe.png" />
-         </image>
-      </ImageView>
-            <Button fx:id="btnavante" layoutX="234.0" layoutY="234.0" mnemonicParsing="false" onAction="#AvantebuttonAction" text="AVANTE">
+		<Pane layoutX="218.0" prefHeight="611.0" prefWidth="578.0">
+			<children>
+				<Button fx:id="btnK3" layoutX="222.0" layoutY="247.0" mnemonicParsing="false" onAction="#K3buttonAction" prefHeight="27.0" prefWidth="87.0" text="K3">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="btnsonata" layoutX="608.0" layoutY="232.0" mnemonicParsing="false" onAction="#SonatabuttonAction" text="SONATA">
+				<Button fx:id="btnK7" layoutX="239.0" layoutY="504.0" mnemonicParsing="false" onAction="#K7buttonAction" prefHeight="27.0" prefWidth="87.0" text="K7">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="btnsantafe" layoutX="615.0" layoutY="486.0" mnemonicParsing="false" onAction="#SantafebuttonAction" text="SnaTaFe">
+				<ImageView fitHeight="243.0" fitWidth="367.0" layoutX="71.0" layoutY="35.0">
+					<image>
+						<Image url="@../CarImages/k3.png" />
+					</image>
+				</ImageView>
+				<ImageView fitHeight="243.0" fitWidth="367.0" layoutX="70.0" layoutY="270.0">
+					<image>
+						<Image url="@../CarImages/k7.png" />
+					</image>
+				</ImageView>
+            <Button layoutX="413.0" layoutY="576.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="99.0" text="Review">
                <font>
-                  <Font size="15.0" />
-               </font></Button>
-            <Button fx:id="btngrandure" layoutX="225.0" layoutY="486.0" mnemonicParsing="false" onAction="#grandurebuttonAction" text="Grandure">
-               <font>
-                  <Font size="15.0" />
-               </font></Button>
-            <Button layoutX="403.0" layoutY="548.0" mnemonicParsing="false" text="Review">
-               <font>
-                  <Font size="21.0" />
+                  <Font size="18.0" />
                </font>
             </Button>
-   </children>
+			</children>
 		</Pane>
+				<ImageView fitHeight="243.0" fitWidth="367.0" layoutX="663.0" layoutY="27.0">
+					<image>
+						<Image url="@../CarImages/k5.png" />
+					</image>
+				</ImageView>
+				<ImageView fitHeight="243.0" fitWidth="367.0" layoutX="663.0" layoutY="259.0">
+					<image>
+						<Image url="@../CarImages/sorre.png" />
+					</image>
+				</ImageView>
+				<Button fx:id="btnK5" layoutX="830.0" layoutY="247.0" mnemonicParsing="false" onAction="#K5buttonAction" prefHeight="27.0" prefWidth="87.0" text="K5">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+				<Button fx:id="btnSorrento" layoutX="829.0" layoutY="502.0" mnemonicParsing="false" onAction="#SorrentobuttonAction" prefHeight="27.0" prefWidth="87.0" text="Sorrento">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
 	</children>
 </AnchorPane>
