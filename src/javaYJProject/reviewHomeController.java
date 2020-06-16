@@ -22,7 +22,8 @@ public class reviewHomeController implements Initializable {
 
 	}
 
-	public void logoutAction(ActionEvent ae1) {
+		
+	public void logoutAction(ActionEvent ae1) {  
 
 		btnLogout.getScene().getWindow().hide();
 

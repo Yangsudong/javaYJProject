@@ -32,6 +32,7 @@ import javafx.util.Duration;
 
 public class LoginController implements Initializable {
 
+	
 	@FXML
 	Button btnSignup, btnLogin, btnReturn;
 	@FXML
